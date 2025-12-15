@@ -27,7 +27,6 @@
     "target": [
       "zip",
       "deb",
-      "rpm",
       "appimage"
     ],
     "icon": "build/icons",
@@ -38,10 +37,12 @@
     "executableName": "apple-music",
     "artifactName": "apple-music_${version}_${arch}.${ext}",
     "desktop": {
-      "Name": "Apple Music",
-      "StartupWMClass": "apple-music",
-      "Keywords": "apple;music;",
-      "Icon": "apple-music"
+      "entry": {
+        "Name": "Apple Music",
+        "StartupWMClass": "apple-music",
+        "Keywords": "apple;music;",
+        "Icon": "apple-music"
+      }
     }
   },
   "win": {
@@ -51,7 +52,6 @@
       "portable",
       "nsis"
     ],
-    "publisherName": "Alex313031",
     "executableName": "apple_music",
     "artifactName": "apple_music_${version}_${arch}.${ext}"
   },
