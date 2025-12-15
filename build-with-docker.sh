@@ -2,10 +2,14 @@
 set -eo pipefail
 
 declare -r DOCKERFILE_PATH="./build/apple-music-builder.dockerfile"
-declare -r DOCKERIMAGE_NAME="apple-music-builder"
+if ! test -n "${DOCKERIMAGE_NAME}"; then
+    DOCKERIMAGE_NAME="apple-music-builder"
+fi
 
 function build_docker_image {
     docker build \
+        --build-arg BUILDKIT_INLINE_CACHE=1 \
+        --cache-from "${DOCKERIMAGE_NAME}:latest" \
         -f "${DOCKERFILE_PATH}" \
         -t "${DOCKERIMAGE_NAME}" \
         ./
