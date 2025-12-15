@@ -146,6 +146,28 @@ case $1 in
 	--dist) packageApp; exit 0;;
 esac
 
+updateLocks () {
+npm i --package-lock-only
+}
+case $1 in
+	--updatelocks) updateLocks; exit 0;;
+esac
+
+auditFix () {
+npm audit fix
+}
+case $1 in
+	--auditfix) auditFix; exit 0;;
+esac
+
+auditFixForce () {
+npm audit fix --force
+}
+case $1 in
+	--auditfixforce) auditFixForce; exit 0;;
+esac
+
+
 printf "\n" &&
 printf "${bold}${GRE}Script to build Yiff Webview.${c0}\n" &&
 printf "${bold}${YEL}Use the --deps flag to install build dependencies.${c0}\n" &&
@@ -155,6 +177,9 @@ printf "${bold}${YEL}Use the --clean flag to run \`npm run clean\`.${c0}\n" &&
 printf "${bold}${YEL}Use the --distclean flag to run \`npm run distclean\`.${c0}\n" &&
 printf "${bold}${YEL}Use the --dist flag to generate .zip and .deb/.exe packages.${c0}\n" &&
 printf "${bold}${YEL}Use the --help flag to show this help.${c0}\n" &&
+printf "${bold}${YEL}Use the --updatelocks flag to run npm to update lockfiles.${c0}\n" &&
+printf "${bold}${YEL}Use the --auditfix flag to run npm to update deps with npm audit.${c0}\n" &&
+printf "${bold}${YEL}Use the --auditfixforce flag to run npm to update deps with npm audit force.${c0}\n" &&
 printf "\n" &&
 
 tput sgr0 &&
