@@ -15,17 +15,18 @@ See the [Releases](https://github.com/Alex313031/apple-music-desktop/releases).
 
 ## Building
 
-Requires nodejs 16, or 18. It is reccomended to use [nvm](https://github.com/nvm-sh/nvm) for installing/managing node versions.
-Yarn can also be used.
+The `docker` build path only depends on docker or podman (with docker aliases) to be installed on the host system.
 
 ```bash
-git clone https://github.com/Alex313031/apple-music-desktop.git
-cd apple-music-desktop
-nvm install # Only use if you are using nvm
-npm install # Install needed npm deps
-npm run start # Run app in dev mode
+# Build Command
+./build-with-docker.sh --dist
+
+# Run
+./dist/apple-music*.AppImage
+
+# Install (lazy, good)
+cp ./dist/apple-music*.AppImage ~/.local/bin/apple-music
+
+# Install (lazy, evil)
+sudo cp ./dist/apple-music*.AppImage /usr/bin/apple-music
 ```
-
-## TODO
-
-See [TODO.txt](TODO.txt)
